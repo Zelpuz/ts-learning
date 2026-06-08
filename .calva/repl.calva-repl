@@ -1,0 +1,1193 @@
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]))
+
+(def v (dv [1.0 2.0 3.0 4.0 5.0]))
+(sum v)
+(def v (dv [1.0 2.0 3.0 4.0 5.0]))
+clj꞉ts-learning.core꞉> 
+(sum v)
+clj꞉ts-learning.core꞉> 
+ts-learning.core
+; Syntax error (ClassNotFoundException) compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:0:0).
+; ts-learning.core
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]))
+clj꞉ts-learning.core꞉> 
+1.0
+clj꞉ts-learning.core꞉> 
+(def v (dv [1.0 2.0 3.0 4.0 5.0]))
+clj꞉ts-learning.core꞉> 
+(sum v)
+clj꞉ts-learning.core꞉> 
+(v)
+clj꞉ts-learning.core꞉> 
+(print ts)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:10:1).
+; Unable to resolve symbol: ts in this context
+clj꞉ts-learning.core꞉> 
+(def ts [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts)
+clj꞉ts-learning.core꞉> 
+(def ts [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(def ts [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+2.0
+clj꞉ts-learning.core꞉> 
+[1.0 2.0 3.0 4.0 5.0]
+clj꞉ts-learning.core꞉> 
+(def ts [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts)
+clj꞉ts-learning.core꞉> 
+(sum ts)
+; Execution error (IllegalArgumentException) at uncomplicate.neanderthal.internal.api/fn$G (api.clj:236).
+; No implementation of method: :engine of protocol: #'uncomplicate.neanderthal.internal.api/EngineProvider found for class: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+(reduce + ts)
+clj꞉ts-learning.core꞉> 
+(def ts '(1.0 2.0 3.0 4.0 5.0))
+clj꞉ts-learning.core꞉> 
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(def ts2 '(1.0 2.0 3.0 4.0 5.0))
+clj꞉ts-learning.core꞉> 
+(print ts2)
+clj꞉ts-learning.core꞉> 
+(reduce + ts2)
+clj꞉ts-learning.core꞉> 
+(rseq ts1)
+clj꞉ts-learning.core꞉> 
+(odd? ts1)
+; Execution error (IllegalArgumentException) at ts-learning.core/eval11057 (core.clj:20).
+; Argument must be an integer: [1.0 2.0 3.0 4.0 5.0]
+clj꞉ts-learning.core꞉> 
+(odd? int ts1)
+; Execution error (ArityException) at ts-learning.core/eval11059 (core.clj:20).
+; Wrong number of args (2) passed to: clojure.core/odd?
+clj꞉ts-learning.core꞉> 
+(int 1.0)
+clj꞉ts-learning.core꞉> 
+(int 1.0)
+clj꞉ts-learning.core꞉> 
+(reduce int ts1)
+; Execution error (ArityException) at ts-learning.core/eval11065 (core.clj:22).
+; Wrong number of args (2) passed to: clojure.core/int
+clj꞉ts-learning.core꞉> 
+(reduce int 'ts1)
+; Execution error (IllegalArgumentException) at ts-learning.core/eval11067 (core.clj:22).
+; Don't know how to create ISeq from: clojure.lang.Symbol
+clj꞉ts-learning.core꞉> 
+(reduce int ts1)
+; Execution error (ArityException) at ts-learning.core/eval11069 (core.clj:22).
+; Wrong number of args (2) passed to: clojure.core/int
+clj꞉ts-learning.core꞉> 
+((reduce int) ts1)
+; Execution error (ArityException) at ts-learning.core/eval11071 (core.clj:22).
+; Wrong number of args (1) passed to: clojure.core/reduce
+clj꞉ts-learning.core꞉> 
+( ts1)
+; Execution error (ArityException) at ts-learning.core/eval11073 (core.clj:22).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+(reduce int ts1)
+; Execution error (ArityException) at ts-learning.core/eval11075 (core.clj:22).
+; Wrong number of args (2) passed to: clojure.core/int
+clj꞉ts-learning.core꞉> 
+(mapv int ts1)
+clj꞉ts-learning.core꞉> 
+(odd? 3)
+clj꞉ts-learning.core꞉> 
+(reduce odd? mapv int ts1)
+; Execution error (ArityException) at ts-learning.core/eval11081 (core.clj:25).
+; Wrong number of args (4) passed to: clojure.core/reduce
+clj꞉ts-learning.core꞉> 
+(reduce odd? (mapv int ts1))
+; Execution error (ArityException) at ts-learning.core/eval11083 (core.clj:25).
+; Wrong number of args (2) passed to: clojure.core/odd?
+clj꞉ts-learning.core꞉> 
+(reduce odd? '(mapv int ts1))
+; Execution error (ArityException) at ts-learning.core/eval11085 (core.clj:25).
+; Wrong number of args (2) passed to: clojure.core/odd?
+clj꞉ts-learning.core꞉> 
+(reduce odd? (mapv int ts1))
+; Execution error (ArityException) at ts-learning.core/eval11087 (core.clj:25).
+; Wrong number of args (2) passed to: clojure.core/odd?
+clj꞉ts-learning.core꞉> 
+(mapv int ts1)
+clj꞉ts-learning.core꞉> 
+(mapv odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(filter odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(mapv + [ts1 ts1])
+; Execution error (ClassCastException) at java.lang.Class/cast (Class.java:3492).
+; Cannot cast clojure.lang.PersistentVector to java.lang.Number
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(partial reduce (mapv +) [ts1 ts1 ts1])
+; Execution error (ArityException) at ts-learning.core/eval11101 (core.clj:31).
+; Wrong number of args (1) passed to: clojure.core/mapv
+clj꞉ts-learning.core꞉> 
+(reduce (partial mapv +) [ts1 ts1 ts1])
+clj꞉ts-learning.core꞉> 
+(defn mapv_plus (partial mapv +))
+; Syntax error macroexpanding clojure.core/defn at (c:\Users\taylo\Documents\ts-learning\core.clj:32:1).
+; partial - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (partial mapv +) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉ts-learning.core꞉> 
+(fn mapv_plus (partial mapv +))
+; Syntax error macroexpanding clojure.core/fn at (c:\Users\taylo\Documents\ts-learning\core.clj:32:1).
+; (partial mapv +) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+; partial - failed: vector? at: [:fn-tail :arity-n :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉ts-learning.core꞉> 
+(defn mapv_plus (partial mapv +))
+; Syntax error macroexpanding clojure.core/defn at (c:\Users\taylo\Documents\ts-learning\core.clj:32:1).
+; partial - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (partial mapv +) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉ts-learning.core꞉> 
+(defn mapv_plus [& args] (partial mapv +))
+clj꞉ts-learning.core꞉> 
+(mapv_plus [ts1 ts1 ts1])
+clj꞉ts-learning.core꞉> 
+(mapv_plus ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(reduce (partial mapv -) [ts1 ts1 ts1])
+clj꞉ts-learning.core꞉> 
+(reduce (partial mapv /) [ts1 ts1 ts1])
+clj꞉ts-learning.core꞉> 
+(defn lag [ts] (map vector (rest ts) ts))
+clj꞉ts-learning.core꞉> 
+(lag ts1)
+clj꞉ts-learning.core꞉> 
+(rest ts1)
+clj꞉ts-learning.core꞉> 
+(rest (reverse ts1))
+clj꞉ts-learning.core꞉> 
+(reverse (rest (reverse ts1)))
+clj꞉ts-learning.core꞉> 
+(rest ts1)
+clj꞉ts-learning.core꞉> 
+(lag ts1)
+clj꞉ts-learning.core꞉> 
+(defn lag [ts] (map vector (rest ts) ts))
+clj꞉ts-learning.core꞉> 
+(lag ts1)
+clj꞉ts-learning.core꞉> 
+(mapv last (lag ts1))
+clj꞉ts-learning.core꞉> 
+(pop ts1)
+clj꞉ts-learning.core꞉> 
+(ts1)
+; Execution error (ArityException) at ts-learning.core/eval11134 (core.clj:42).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+(ts1)
+; Execution error (ArityException) at ts-learning.core/eval11136 (core.clj:42).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+('ts1)
+; Execution error (ArityException) at ts-learning.core/eval11138 (core.clj:42).
+; Wrong number of args (0) passed to: clojure.lang.Symbol
+clj꞉ts-learning.core꞉> 
+(pop ts1)
+clj꞉ts-learning.core꞉> 
+(pop ts1)
+clj꞉ts-learning.core꞉> 
+(pop ts1)
+clj꞉ts-learning.core꞉> 
+(mapv last (lag ts1))
+clj꞉ts-learning.core꞉> 
+(lag ts1)
+clj꞉ts-learning.core꞉> 
+(ts1)
+; Execution error (ArityException) at ts-learning.core/eval11150 (core.clj:42).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+(seq ts1)
+clj꞉ts-learning.core꞉> 
+(println ts1)
+clj꞉ts-learning.core꞉> 
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(rest ts1)
+clj꞉ts-learning.core꞉> 
+(fifth ts1)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:43:1).
+; Unable to resolve symbol: fifth in this context
+clj꞉ts-learning.core꞉> 
+(third ts1)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:43:1).
+; Unable to resolve symbol: third in this context
+clj꞉ts-learning.core꞉> 
+(second ts1)
+clj꞉ts-learning.core꞉> 
+(first ts1)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 1)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 1 1)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 1 2)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 2)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 1 2)
+clj꞉ts-learning.core꞉> 
+(.nextGaussian (java.util.Random))
+; Execution error (ClassCastException) at ts-learning.core/eval11176 (core.clj:39).
+; class java.lang.Class cannot be cast to class clojure.lang.IFn (java.lang.Class is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉ts-learning.core꞉> 
+[uncomplicate.neanderthal.random :refer :all]
+; Syntax error (ClassNotFoundException) compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:0:0).
+; uncomplicate.neanderthal.random
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(def rng RandomDataGenerator.)
+; Syntax error (ClassNotFoundException) compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:42:1).
+; RandomDataGenerator.
+clj꞉ts-learning.core꞉> 
+(ts1)
+; Execution error (ArityException) at ts-learning.core/eval11234 (core.clj:53).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(def rng RandomDataGenerator.)
+; Syntax error (ClassNotFoundException) compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:42:1).
+; RandomDataGenerator.
+clj꞉ts-learning.core꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(def ts2 '(1.0 2.0 3.0 4.0 5.0))
+clj꞉ts-learning.core꞉> 
+(print ts2)
+clj꞉ts-learning.core꞉> 
+(reduce + ts1)
+clj꞉ts-learning.core꞉> 
+(reduce + ts2)
+clj꞉ts-learning.core꞉> 
+(rseq ts1)
+clj꞉ts-learning.core꞉> 
+(reverse ts1)
+clj꞉ts-learning.core꞉> 
+(int 1.0)
+clj꞉ts-learning.core꞉> 
+(int 1.0)
+clj꞉ts-learning.core꞉> 
+(mapv int ts1)
+clj꞉ts-learning.core꞉> 
+(odd? 3)
+clj꞉ts-learning.core꞉> 
+(mapv odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(filter odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(defn mapv_plus [& args] (partial mapv +))
+clj꞉ts-learning.core꞉> 
+(mapv_plus ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(reduce (partial mapv /) [ts1 ts1 ts1])
+clj꞉ts-learning.core꞉> 
+(subvec ts1 1 2)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 2)
+clj꞉ts-learning.core꞉> 
+(def rng RandomDataGenerator.)
+; Syntax error (ClassNotFoundException) compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:42:1).
+; RandomDataGenerator.
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(def rng (RandomDataGenerator.))
+clj꞉ts-learning.core꞉> 
+(.nextGaussian rng)
+; Execution error (IllegalArgumentException) at ts-learning.core/eval10363 (core.clj:43).
+; No matching field found: nextGaussian for class org.apache.commons.math3.random.RandomDataGenerator
+clj꞉ts-learning.core꞉> 
+(.Gaussian rng)
+; Execution error (IllegalArgumentException) at ts-learning.core/eval10365 (core.clj:43).
+; No matching field found: Gaussian for class org.apache.commons.math3.random.RandomDataGenerator
+clj꞉ts-learning.core꞉> 
+(.nextGaussian rng)
+; Execution error (IllegalArgumentException) at ts-learning.core/eval10367 (core.clj:43).
+; No matching field found: nextGaussian for class org.apache.commons.math3.random.RandomDataGenerator
+clj꞉ts-learning.core꞉> 
+(def dist (NormalDistribution. 0.0 1.0))
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(repeatedly 10 #(.sample dist))
+clj꞉ts-learning.core꞉> 
+(assoc ts1 4 0)
+clj꞉ts-learning.core꞉> 
+(assoc ts1 2 999)
+clj꞉ts-learning.core꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+ts-learning.core
+; Syntax error (ClassNotFoundException) compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:0:0).
+; ts-learning.core
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; Execution error (FileNotFoundException) at ts-learning.core/eval9305$loading (core.clj:4).
+; Could not locate uncomplicate/neanderthal/core__init.class, uncomplicate/neanderthal/core.clj or uncomplicate/neanderthal/core.cljc on classpath.
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; Execution error (FileNotFoundException) at ts-learning.core/eval9311$loading (core.clj:4).
+; Could not locate uncomplicate/neanderthal/core__init.class, uncomplicate/neanderthal/core.clj or uncomplicate/neanderthal/core.cljc on classpath.
+clj꞉ts-learning.core꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+; SLF4J: Defaulting to no-operation (NOP) logger implementation
+; SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+; WARNING: abs already refers to: #'clojure.core/abs in namespace: medley.core, being replaced by: #'medley.core/abs
+; 
+; Syntax error compiling at (clojure\tools\reader\edn.clj:75:9).
+; No such var: err/throw-no-dispatch
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; Syntax error compiling at (taoensso\encore.clj:1:1).
+; namespace 'clojure.tools.reader.edn' not found
+clj꞉ts-learning.core꞉> 
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(def ts2 '(1.0 2.0 3.0 4.0 5.0))
+clj꞉ts-learning.core꞉> 
+(print ts2)
+clj꞉ts-learning.core꞉> 
+(assoc ts1 2 999)
+clj꞉ts-learning.core꞉> 
+(assoc ts1 2 999)
+clj꞉ts-learning.core꞉> 
+(reduce + ts1)
+clj꞉ts-learning.core꞉> 
+(reduce + ts2)
+clj꞉ts-learning.core꞉> 
+(rseq ts1)
+clj꞉ts-learning.core꞉> 
+(reverse ts1)
+clj꞉ts-learning.core꞉> 
+(int 1.0)
+clj꞉ts-learning.core꞉> 
+(mapv int ts1)
+clj꞉ts-learning.core꞉> 
+(odd? 3)
+clj꞉ts-learning.core꞉> 
+(mapv odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(filter odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(defn mapv_plus [& args] (partial mapv +))
+clj꞉ts-learning.core꞉> 
+(mapv_plus ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 2)
+clj꞉ts-learning.core꞉> 
+;;; Clojure and time series learning script
+
+;; Requirements
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+
+;; Basic lists of numbers and simple operations
+(def ts1 [1.0 2.0 3.0 4.0 5.0]) ; square brackets define a vector
+(print ts1) ; prints it
+
+(def ts2 '(1.0 2.0 3.0 4.0 5.0)) ; round brackets are lists
+(print ts2)
+
+(assoc ts1 2 999) ; replace a value within a collection.
+;; Note that this does not edit ts1 in-place, it returns a new list with element at index 2 replaced.
+
+(reduce + ts1) ; returns the sum of the vector by reducing the + function
+(reduce + ts2) ; works on lists too
+
+(rseq ts1) ; reverses the vector
+(reverse ts1) ; also reverse. docs say rseq might be faster.
+
+(int 1.0) ; convert a float to an int
+(mapv int ts1) ; map over a vector
+
+(odd? 3) ; test oddity
+(mapv odd? (mapv int ts1)) ; test oddity in a vector
+(filter odd? (mapv int ts1)) ; return only the odd values
+
+(mapv + ts1 ts1) ; vector sum
+(mapv + ts1 ts1 ts1) ; works with many
+(defn mapv_plus [& args] (partial mapv +)) ; partial is like a functool. The & makes arg counts variable
+(mapv_plus ts1 ts1 ts1)
+
+(reduce (partial mapv /) [ts1 ts1 ts1]) ; can use reduce on a partial to apply mapv over a vector of vectors
+
+(subvec ts1 1 2) ; slices like (subvec arg start_inclusive end_exclusive)
+(subvec ts1 2) ; no second slice arg means go to the end
+
+;; Random numbers
+(def dist (NormalDistribution. 0.0 1.0))
+(.sample dist)
+(repeatedly 10 #(.sample dist))
+
+;; Some time series functions
+(defn lag [ts] (map vector (rest ts) ts)) ; lag operator. Returns a map of value -> lagged value
+(lag ts1)
+
+(mapv last (lag ts1)) ; you can get just the lags like this, but note that this is the same as the next line
+(pop ts1) ; removes last value and returns. Remember that clojure is purely functional. ts1 isn't mutated.
+(rest ts1) ; for reference, rest returns all but the first.
+
+(ts1)
+
+;; Create a white noise time series
+(def series-len 100)
+(def white-noise (vec (repeatedly series-len #(.sample dist)))) ;; repeatedly returns a list. vec turns a list into a vector.
+(println white-noise)
+(println (count white-noise))
+; Syntax error compiling at (taoensso\encore.clj:1:1).
+; namespace 'clojure.tools.reader.edn' not found
+; 
+; Syntax error (IllegalArgumentException) compiling new at (c:\Users\taylo\Documents\ts-learning\core.clj:46:11).
+; Unable to resolve classname: NormalDistribution
+; 
+; Execution error (IllegalArgumentException) at ts-learning.core/eval14645 (core.clj:47).
+; No matching field found: sample for class clojure.lang.Var$Unbound
+; 
+; Error printing return value (IllegalArgumentException) at clojure.lang.Reflector/getInstanceField (Reflector.java:426).
+; No matching field found: sample for class clojure.lang.Var$Unbound
+; 
+; Execution error (ArityException) at ts-learning.core/eval14660 (core.clj:58).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+; 
+; Execution error (IllegalArgumentException) at ts-learning.core/fn (core.clj:62).
+; No matching field found: sample for class clojure.lang.Var$Unbound
+; 
+; Execution error (UnsupportedOperationException) at ts-learning.core/eval14666 (core.clj:64).
+; count not supported on this type: Unbound
+clj꞉ts-learning.core꞉> 
+(println (count white-noise))
+; Execution error (UnsupportedOperationException) at ts-learning.core/eval14668 (core.clj:64).
+; count not supported on this type: Unbound
+clj꞉ts-learning.core꞉> 
+(println (count white-noise))
+; Execution error (UnsupportedOperationException) at ts-learning.core/eval14670 (core.clj:64).
+; count not supported on this type: Unbound
+clj꞉ts-learning.core꞉> 
+(println (count white-noise))
+; Execution error (UnsupportedOperationException) at ts-learning.core/eval14672 (core.clj:64).
+; count not supported on this type: Unbound
+clj꞉ts-learning.core꞉> 
+;;; Clojure and time series learning script
+
+;; Requirements
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+
+;; Basic lists of numbers and simple operations
+(def ts1 [1.0 2.0 3.0 4.0 5.0]) ; square brackets define a vector
+(print ts1) ; prints it
+
+(def ts2 '(1.0 2.0 3.0 4.0 5.0)) ; round brackets are lists
+(print ts2)
+
+(assoc ts1 2 999) ; replace a value within a collection.
+;; Note that this does not edit ts1 in-place, it returns a new list with element at index 2 replaced.
+
+(reduce + ts1) ; returns the sum of the vector by reducing the + function
+(reduce + ts2) ; works on lists too
+
+(rseq ts1) ; reverses the vector
+(reverse ts1) ; also reverse. docs say rseq might be faster.
+
+(int 1.0) ; convert a float to an int
+(mapv int ts1) ; map over a vector
+
+(odd? 3) ; test oddity
+(mapv odd? (mapv int ts1)) ; test oddity in a vector
+(filter odd? (mapv int ts1)) ; return only the odd values
+
+(mapv + ts1 ts1) ; vector sum
+(mapv + ts1 ts1 ts1) ; works with many
+(defn mapv_plus [& args] (partial mapv +)) ; partial is like a functool. The & makes arg counts variable
+(mapv_plus ts1 ts1 ts1)
+
+(reduce (partial mapv /) [ts1 ts1 ts1]) ; can use reduce on a partial to apply mapv over a vector of vectors
+
+(subvec ts1 1 2) ; slices like (subvec arg start_inclusive end_exclusive)
+(subvec ts1 2) ; no second slice arg means go to the end
+
+;; Random numbers
+(def dist (NormalDistribution. 0.0 1.0))
+(.sample dist)
+(repeatedly 10 #(.sample dist))
+
+;; Some time series functions
+(defn lag [ts] (map vector (rest ts) ts)) ; lag operator. Returns a map of value -> lagged value
+(lag ts1)
+
+(mapv last (lag ts1)) ; you can get just the lags like this, but note that this is the same as the next line
+(pop ts1) ; removes last value and returns. Remember that clojure is purely functional. ts1 isn't mutated.
+(rest ts1) ; for reference, rest returns all but the first.
+
+(ts1)
+
+;; Create a white noise time series
+(def series-len 100)
+(def white-noise (vec (repeatedly series-len #(.sample dist)))) ;; repeatedly returns a list. vec turns a list into a vector.
+(println white-noise)
+(println (count white-noise))
+; Syntax error compiling at (taoensso\encore.clj:1:1).
+; namespace 'clojure.tools.reader.edn' not found
+; 
+; Syntax error (IllegalArgumentException) compiling new at (c:\Users\taylo\Documents\ts-learning\core.clj:46:11).
+; Unable to resolve classname: NormalDistribution
+; 
+; Execution error (IllegalArgumentException) at ts-learning.core/eval14741 (core.clj:47).
+; No matching field found: sample for class clojure.lang.Var$Unbound
+; 
+; Error printing return value (IllegalArgumentException) at clojure.lang.Reflector/getInstanceField (Reflector.java:426).
+; No matching field found: sample for class clojure.lang.Var$Unbound
+; 
+; Execution error (ArityException) at ts-learning.core/eval14756 (core.clj:58).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+; 
+; Execution error (IllegalArgumentException) at ts-learning.core/fn (core.clj:62).
+; No matching field found: sample for class clojure.lang.Var$Unbound
+; 
+; Execution error (UnsupportedOperationException) at ts-learning.core/eval14762 (core.clj:64).
+; count not supported on this type: Unbound
+clj꞉ts-learning.core꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉ts-learning.core꞉> 
+(println (count white-noise))
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:64:10).
+; Unable to resolve symbol: white-noise in this context
+clj꞉ts-learning.core꞉> 
+(ts1)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:58:1).
+; Unable to resolve symbol: ts1 in this context
+clj꞉ts-learning.core꞉> 
+(println (count white-noise))
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:64:10).
+; Unable to resolve symbol: white-noise in this context
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+; SLF4J: Defaulting to no-operation (NOP) logger implementation
+; SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+; WARNING: abs already refers to: #'clojure.core/abs in namespace: medley.core, being replaced by: #'medley.core/abs
+; 
+; Syntax error compiling at (clojure\tools\reader\edn.clj:75:9).
+; No such var: err/throw-no-dispatch
+clj꞉ts-learning.core꞉> 
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(def ts2 '(1.0 2.0 3.0 4.0 5.0))
+clj꞉ts-learning.core꞉> 
+(print ts2)
+clj꞉ts-learning.core꞉> 
+(assoc ts1 2 999)
+clj꞉ts-learning.core꞉> 
+(reduce + ts1)
+clj꞉ts-learning.core꞉> 
+(reduce + ts2)
+clj꞉ts-learning.core꞉> 
+; Evaluation of file core.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉ts-learning.core꞉> 
+(rseq ts1)
+clj꞉ts-learning.core꞉> 
+(reverse ts1)
+clj꞉ts-learning.core꞉> 
+(int 1.0)
+clj꞉ts-learning.core꞉> 
+(mapv int ts1)
+clj꞉ts-learning.core꞉> 
+(odd? 3)
+clj꞉ts-learning.core꞉> 
+(mapv odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(filter odd? (mapv int ts1))
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(mapv + ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(defn mapv_plus [& args] (partial mapv +))
+clj꞉ts-learning.core꞉> 
+(mapv_plus ts1 ts1 ts1)
+clj꞉ts-learning.core꞉> 
+(reduce (partial mapv /) [ts1 ts1 ts1])
+clj꞉ts-learning.core꞉> 
+(subvec ts1 1 2)
+clj꞉ts-learning.core꞉> 
+(subvec ts1 2)
+clj꞉ts-learning.core꞉> 
+(def dist (NormalDistribution. 0.0 1.0))
+; Syntax error (IllegalArgumentException) compiling new at (c:\Users\taylo\Documents\ts-learning\core.clj:46:11).
+; Unable to resolve classname: NormalDistribution
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; Syntax error compiling at (taoensso\encore.clj:1:1).
+; namespace 'clojure.tools.reader.edn' not found
+clj꞉ts-learning.core꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core 
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(def ts1 [1.0 2.0 3.0 4.0 5.0])
+clj꞉ts-learning.core꞉> 
+(print ts1)
+clj꞉ts-learning.core꞉> 
+(def ts2 '(1.0 2.0 3.0 4.0 5.0))
+clj꞉ts-learning.core꞉> 
+(print ts2)
+clj꞉ts-learning.core꞉> 
+(assoc ts1 2 999)
+clj꞉ts-learning.core꞉> 
+(def dist (NormalDistribution. 0.0 1.0))
+clj꞉ts-learning.core꞉> 
+(.sample dist)
+clj꞉ts-learning.core꞉> 
+(repeatedly 10 #(.sample dist))
+clj꞉ts-learning.core꞉> 
+(defn lag [ts] (map vector (rest ts) ts))
+clj꞉ts-learning.core꞉> 
+(lag ts1)
+clj꞉ts-learning.core꞉> 
+(mapv last (lag ts1))
+clj꞉ts-learning.core꞉> 
+(pop ts1)
+clj꞉ts-learning.core꞉> 
+(rest ts1)
+clj꞉ts-learning.core꞉> 
+(ts1)
+; Execution error (ArityException) at ts-learning.core/eval34268 (core.clj:58).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+'(ts1)
+clj꞉ts-learning.core꞉> 
+(def series-len 100)
+clj꞉ts-learning.core꞉> 
+(def white-noise (vec (repeatedly series-len #(.sample dist))))
+clj꞉ts-learning.core꞉> 
+(println white-noise)
+clj꞉ts-learning.core꞉> 
+(println (count white-noise))
+clj꞉ts-learning.core꞉> 
+(oz/start-server!)
+clj꞉ts-learning.core꞉> 
+(?map-indexed)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:72:1).
+; Unable to resolve symbol: ?map-indexed in this context
+clj꞉ts-learning.core꞉> 
+(map-indexed?)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:72:1).
+; Unable to resolve symbol: map-indexed? in this context
+clj꞉ts-learning.core꞉> 
+(doc map-indexed)
+clj꞉ts-learning.core꞉> 
+(def plot-data
+  (map-indexed (fn [i v] {:t i :value v}) white-noise))
+clj꞉ts-learning.core꞉> 
+(def plot-data
+  (map-indexed (fn [i v] {:t i :value v}) white-noise))
+clj꞉ts-learning.core꞉> 
+'(plot-data)
+clj꞉ts-learning.core꞉> 
+(println plot-data)
+clj꞉ts-learning.core꞉> 
+noise
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:0:0).
+; Unable to resolve symbol: noise in this context
+clj꞉ts-learning.core꞉> 
+(oz/view!
+ {:data {:values plot-data}
+  :mark "line"
+  :encoding {:x {:field "t" :type "quantitative" :title "Time step"}
+             :y {:field "value" :type "quantitative" :title "Value"}}
+  :width 600
+  :height 300
+  :title "White noise"})
+clj꞉ts-learning.core꞉> 
+(oz/view!
+ {:data {:values plot-data}
+  :mark {:type "line"
+         :color "black"
+         :strokeWidth 1
+         :opacity 0.8}
+  :encoding {:x {:field "t" :type "quantitative" :title "Time step"}
+             :y {:field "value" :type "quantitative" :title "Value"}}
+  :width 600
+  :height 300
+  :title "White noise"})
+clj꞉ts-learning.core꞉> 
+(map-indexed white-noise)
+clj꞉ts-learning.core꞉> 
+(doc map-indexed)
+clj꞉ts-learning.core꞉> 
+(defn give-index [ts] 
+  (map-indexed (fn [t v] {:time t :value v}) ts))
+clj꞉ts-learning.core꞉> 
+(println (give-index white-noise))
+clj꞉ts-learning.core꞉> 
+(defn plot-ts [ts & {:keys [title] :or {title "Time series"}}]
+  ((oz/view!
+    {:data {:values (give-index ts)}
+     :mark {:type "line"
+            :color "black"
+            :strokeWidth 1
+            :opacity 0.8}
+     :encoding {:x {:field "time" :type "quantitative" :title "Time step"}
+                :y {:field "value" :type "quantitative" :title "Value"}}
+     :width 600
+     :height 300
+     :title title})))
+clj꞉ts-learning.core꞉> 
+(plot-ts white-noise)
+; Execution error (NullPointerException) at ts-learning.core/plot-ts (core.clj:75).
+; Cannot invoke "clojure.lang.IFn.invoke()" because the return value of "clojure.lang.IFn.invoke(Object)" is null
+clj꞉ts-learning.core꞉> 
+(defn plot-ts [ts & {:keys [title] :or {title "Time series"}}]
+  ((oz/view!
+    {:data {:values (give-index ts)}
+     :mark {:type "line"
+            :color "blue"
+            :strokeWidth 1
+            :opacity 0.8}
+     :encoding {:x {:field "time" :type "quantitative" :title "Time step"}
+                :y {:field "value" :type "quantitative" :title "Value"}}
+     :width 600
+     :height 300
+     :title title})))
+clj꞉ts-learning.core꞉> 
+(plot-ts white-noise)
+; Execution error (NullPointerException) at ts-learning.core/plot-ts (core.clj:75).
+; Cannot invoke "clojure.lang.IFn.invoke()" because the return value of "clojure.lang.IFn.invoke(Object)" is null
+clj꞉ts-learning.core꞉> 
+(defn plot-ts [ts & {:keys [title] :or {title "Time series"}}]
+  (oz/view!
+    {:data {:values (give-index ts)}
+     :mark {:type "line"
+            :color "blue"
+            :strokeWidth 1
+            :opacity 0.8}
+     :encoding {:x {:field "time" :type "quantitative" :title "Time step"}
+                :y {:field "value" :type "quantitative" :title "Value"}}
+     :width 600
+     :height 300
+     :title title}))
+clj꞉ts-learning.core꞉> 
+(plot-ts white-noise)
+clj꞉ts-learning.core꞉> 
+(defn plot-ts [ts & {:keys [title] :or {title "Time series"}}]
+  (oz/view!
+    {:data {:values (give-index ts)}
+     :mark {:type "line"
+            :color "black"
+            :strokeWidth 1
+            :opacity 1.0}
+     :encoding {:x {:field "time" :type "quantitative" :title "Time step"}
+                :y {:field "value" :type "quantitative" :title "Value"}}
+     :width 600
+     :height 300
+     :title title}))
+clj꞉ts-learning.core꞉> 
+(plot-ts white-noise)
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all]
+            [clojure.pprint :as pp])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] (give-index white-noise))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] (give-index (subvec white-noise 0 10)))
+clj꞉ts-learning.core꞉> 
+(take 10 white-noise)
+clj꞉ts-learning.core꞉> 
+(println white-noise)
+clj꞉ts-learning.core꞉> 
+(vector (take 10 white-noise))
+clj꞉ts-learning.core꞉> 
+(vec (take 10 white-noise))
+clj꞉ts-learning.core꞉> 
+(doc take)
+clj꞉ts-learning.core꞉> 
+(doc NormalDistribution.)
+clj꞉ts-learning.core꞉> 
+(doc NormalDistribution)
+; Syntax error compiling var at (c:\Users\taylo\Documents\ts-learning\core.clj:99:1).
+; Expecting var, but NormalDistribution is mapped to class org.apache.commons.math3.distribution.NormalDistribution
+clj꞉ts-learning.core꞉> 
+(defn make-white-noise [length mean stdev]
+  ((vec (repeatedly length #(.sample (NormalDistribution. mean stdev))))))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] (give-index (make-white-noise 100 0.0 1.0)))
+; Execution error (ArityException) at ts-learning.core/make-white-noise (core.clj:95).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉ts-learning.core꞉> 
+(defn make-white-noise [length mean stdev]
+  (vec (repeatedly length #(.sample (NormalDistribution. mean stdev)))))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] (give-index (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] (give-index (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(first ts1)
+clj꞉ts-learning.core꞉> 
+(last ts1)
+clj꞉ts-learning.core꞉> 
+(take-last ts1)
+; Execution error (ArityException) at ts-learning.core/eval35444 (core.clj:114).
+; Wrong number of args (1) passed to: clojure.core/take-last
+clj꞉ts-learning.core꞉> 
+(take-last (vec ts1))
+; Execution error (ArityException) at ts-learning.core/eval35446 (core.clj:114).
+; Wrong number of args (1) passed to: clojure.core/take-last
+clj꞉ts-learning.core꞉> 
+(defn arma [ar-terms ma-terms innovations]
+  (let [p (count ar-terms)
+        q (count ma-terms)
+        dot (fn [cs vs] (reduce + 0 (map * cs vs)))]
+   (:ys
+    (reduce
+     (fn [{:keys [ys eps]} e]
+       (let [ar-part (dot ar-terms (reverse (take-last p ys)))
+             ma-part (dot ma-terms (reverse (take-last q eps)))
+             y (+ ar-part e ma-part)]
+         {:ys (conj ys y) :eps (conj eps e)}))
+     {:ys [] :eps []}
+     innovations))))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] 
+                (give-index 
+                 (arma [0.8] [] (make-white-noise 100 0.0 1.0))))
+clj꞉ts-learning.core꞉> 
+(defn plot-ts! [ts & {:keys [title] :or {title "Time series"}}]
+  (oz/view!
+   {:data {:values (give-index ts)}
+    :mark {:type "line"
+           :color "black"
+           :strokeWidth 1
+           :opacity 1.0}
+    :encoding {:x {:field "time" :type "quantitative" :title "Time step"}
+               :y {:field "value" :type "quantitative" :title "Value"}}
+    :width 600
+    :height 300
+    :title title}))
+clj꞉ts-learning.core꞉> 
+(plot-ts! white-noise)
+clj꞉ts-learning.core꞉> 
+(defn make-white-noise [length mean stdev]
+  (vec (repeatedly length #(.sample (NormalDistribution. mean stdev)))))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] (give-index (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(defn arma [ar-terms ma-terms innovations]
+  (let [p (count ar-terms)
+        q (count ma-terms)
+        dot (fn [cs vs] (reduce + 0 (map * cs vs)))]
+   (:ys
+    (reduce
+     (fn [{:keys [ys eps]} e]
+       (let [ar-part (dot ar-terms (reverse (take-last p ys)))
+             ma-part (dot ma-terms (reverse (take-last q eps)))
+             y (+ ar-part e ma-part)]
+         {:ys (conj ys y) :eps (conj eps e)}))
+     {:ys [] :eps []}
+     innovations))))
+clj꞉ts-learning.core꞉> 
+(pp/print-table [:time :value] 
+                (give-index 
+                 (arma [0.8] [] (make-white-noise 100 0.0 1.0))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (give-index (arma [0.8] [] (make-white-noise 100 0.0 1.0))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [0.8] [] (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [0.2] [] (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [1.0] [] (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [1.1] [] (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [0.67] [0.33] (make-white-noise 100 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [0.67] [0.33] (make-white-noise 100 500.0 25.0)))
+clj꞉ts-learning.core꞉> 
+(defn vec-mean [x]
+  (if (empty? x)
+    0
+    (/ (reduce + x) (count x))))
+clj꞉ts-learning.core꞉> 
+(println (vec-mean white-noise))
+clj꞉ts-learning.core꞉> 
+(println (vec-mean (make-white-noise 1000 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(println (vec-mean (make-white-noise 100000 0.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(println (vec-mean (make-white-noise 100000 1.2 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (arma [0.67] [0.33] (make-white-noise 100 0.0 25.0)))
+clj꞉ts-learning.core꞉> 
+(doc exp)
+clj꞉ts-learning.core꞉> 
+(doc log)
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all]
+            [clojure.pprint :as pp]
+            [clojure.math])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(doc log)
+clj꞉ts-learning.core꞉> 
+(doc math.log)
+clj꞉ts-learning.core꞉> 
+(doc math/log)
+clj꞉ts-learning.core꞉> 
+(doc math/log)
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all]
+            [clojure.pprint :as pp]
+            [clojure.math : as math])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+; Syntax error reading source at (REPL:10:28).
+; Invalid token: :
+clj꞉ts-learning.core꞉> 
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all]
+            [oz.core :as oz :refer :all]
+            [clojure.pprint :as pp]
+            [clojure.math :as math])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+clj꞉ts-learning.core꞉> 
+(math/log)
+; Execution error (ArityException) at ts-learning.core/eval35521 (core.clj:126).
+; Wrong number of args (0) passed to: clojure.math/log
+clj꞉ts-learning.core꞉> 
+(doc math/log)
+clj꞉ts-learning.core꞉> 
+(math/log math/e)
+; Syntax error compiling at (c:\Users\taylo\Documents\ts-learning\core.clj:126:1).
+; No such var: math/e
+clj꞉ts-learning.core꞉> 
+(math/log (math/exp 1))
+clj꞉ts-learning.core꞉> 
+(math/log (math/exp 1.1))
+clj꞉ts-learning.core꞉> 
+(reduce math/exp white-noise)
+; Execution error (ArityException) at ts-learning.core/eval35530 (core.clj:126).
+; Wrong number of args (2) passed to: clojure.math/exp
+clj꞉ts-learning.core꞉> 
+(mapv math/exp white-noise)
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp white-noise))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 0.0 25.0)))
+; Execution error (ArityException) at ts-learning.core/eval35536 (core.clj:126).
+; Wrong number of args (2) passed to: ts-learning.core/make-white-noise
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 0.0 25.0)))
+; Execution error (ArityException) at ts-learning.core/eval35538 (core.clj:126).
+; Wrong number of args (2) passed to: ts-learning.core/make-white-noise
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 1000 0.0 25.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 1000 0.0 3.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 1000 0.0 0.25)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 1000 -5.0 0.3)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 1000 -100.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (make-white-noise 1000 -2.0 1.0)))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 -2.0 1.0))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 0.0 2.0))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 0.0 0.1))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 -3.0 0.33))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 -3.0 0.1))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 0.0 0.1))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 0.0 1.0))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp (arma [0.67] [0.33] (make-white-noise 1000 0.0 0.25))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp 
+                (mapv (fn [col] (- col 5)) 
+                      (arma [0.67] [0.33] (make-white-noise 1000 0.0 0.25)))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp 
+                (mapv (fn [col] (- col 5)) 
+                      (arma [0.67] [0.33] (make-white-noise 1000 0.0 1.0)))))
+clj꞉ts-learning.core꞉> 
+(plot-ts! (mapv math/exp 
+                (mapv (fn [col] (- col 5)) 
+                      (arma [0.67] [0.33] (make-white-noise 1000 0.0 0.67)))))
+clj꞉ts-learning.core꞉> 

@@ -1,0 +1,1 @@
+["^ ","~:members",["^ ","WSystemTrayPeer",["~#set",[["^ ","~:flags",["^2",["~:method"]]]]],"getTrayIconSize",["^2",[["^ ","^3",["^2",["^4","~:public"]]]]],"isSupported",["^2",[["^ ","^3",["^2",["^4","^6"]]]]],"disposeImpl",["^2",[["^ ","^3",["^2",["^4","~:protected"]]]]]]]

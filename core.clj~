@@ -1,0 +1,63 @@
+;;; Clojure and time series learning script
+
+;; Requirements
+(ns ts-learning.core
+  (:require [uncomplicate.neanderthal.core :refer :all]
+            [uncomplicate.neanderthal.random :refer :all]
+            [uncomplicate.neanderthal.native :refer :all])
+  (:import [org.apache.commons.math3.distribution NormalDistribution]
+           [org.apache.commons.math3.random RandomDataGenerator]))
+
+;; Basic lists of numbers and simple operations
+(def ts1 [1.0 2.0 3.0 4.0 5.0]) ; square brackets define a vector
+(print ts1) ; prints it
+
+(def ts2 '(1.0 2.0 3.0 4.0 5.0)) ; round brackets are lists
+(print ts2)
+
+(assoc ts1 2 999) ; replace a value within a collection.
+;; Note that this does not edit ts1 in-place, it returns a new list with element at index 2 replaced.
+
+(reduce + ts1) ; returns the sum of the vector by reducing the + function
+(reduce + ts2) ; works on lists too
+
+(rseq ts1) ; reverses the vector
+(reverse ts1) ; also reverse. docs say rseq might be faster.
+
+(int 1.0) ; convert a float to an int
+(mapv int ts1) ; map over a vector
+
+(odd? 3) ; test oddity
+(mapv odd? (mapv int ts1)) ; test oddity in a vector
+(filter odd? (mapv int ts1)) ; return only the odd values
+
+(mapv + ts1 ts1) ; vector sum
+(mapv + ts1 ts1 ts1) ; works with many
+(defn mapv_plus [& args] (partial mapv +)) ; partial is like a functool. The & makes arg counts variable
+(mapv_plus ts1 ts1 ts1)
+
+(reduce (partial mapv /) [ts1 ts1 ts1]) ; can use reduce on a partial to apply mapv over a vector of vectors
+
+(subvec ts1 1 2) ; slices like (subvec arg start_inclusive end_exclusive)
+(subvec ts1 2) ; no second slice arg means go to the end
+
+;; Random numbers
+(def dist (NormalDistribution. 0.0 1.0))
+(.sample dist)
+(repeatedly 10 #(.sample dist))
+
+;; Some time series functions
+(defn lag [ts] (map vector (rest ts) ts)) ; lag operator. Returns a map of value -> lagged value
+(lag ts1)
+
+(mapv last (lag ts1)) ; you can get just the lags like this, but note that this is the same as the next line
+(pop ts1) ; removes last value and returns. Remember that clojure is purely functional. ts1 isn't mutated.
+(rest ts1) ; for reference, rest returns all but the first.
+
+(ts1)
+
+;; Create a white noise time series
+(def series-len 100)
+(def white-noise (vec (repeatedly series-len #(.sample dist)))) ;; repeatedly returns a list. vec turns a list into a vector.
+(println white-noise)
+(println (count white-noise))
