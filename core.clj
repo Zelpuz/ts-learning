@@ -130,3 +130,5 @@
 (plot-ts! (mapv math/exp 
                 (mapv (fn [col] (- col 5)) 
                       (arma [0.67] [0.33] (make-white-noise 1000 0.0 0.67)))))
+
+;; test update
